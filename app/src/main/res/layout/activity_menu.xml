@@ -18,7 +18,7 @@
         <include
             layout="@layout/app_bar_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
         <!-- YouTubePlayerView -->
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             app:autoPlay="false"
-            app:videoId="4f8rOsTeWJU" />
+            app:videoId="IgzpRSQKnK0" />
 
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:layout_width="match_parent"

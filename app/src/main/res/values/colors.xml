@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name='notiView'>#17121111</color>
+
     <!--    SuperheroApp-->
     <color name="superhero_item_name">#73673AB7</color>
 

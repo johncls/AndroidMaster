@@ -6,18 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toast
-import android.widget.VideoView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.johnpinilla.androidmaster.noti.viewsNotiActivity
 import com.johnpinilla.androidmaster.searchsuperheroe.SuperHeroListActivity
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -62,7 +60,9 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_item_two -> {
                 navigateSearchHeroe()
             }
-            R.id.nav_item_three -> Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
+            R.id.nav_item_three -> {
+                navigateNotiView()
+            }
 
         }
 
@@ -95,6 +95,11 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun navigateSearchHeroe() {
         val intent = Intent(this, SuperHeroListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateNotiView(){
+        val intent = Intent(this, viewsNotiActivity::class.java)
         startActivity(intent)
     }
 
