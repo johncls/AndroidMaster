@@ -2,34 +2,47 @@ package com.johnpinilla.androidmaster
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.Button
+import android.widget.MediaController
+import android.widget.VideoView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.johnpinilla.androidmaster.blaaier.BlaaierActivity
 import com.johnpinilla.androidmaster.noti.viewsNotiActivity
 import com.johnpinilla.androidmaster.searchsuperheroe.SuperHeroListActivity
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-
-
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
-
+    private lateinit var videoView: VideoView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val btnVideo = findViewById<Button>(R.id.btnVideo)
-        btnVideo.setOnClickListener { viewVideo() }
+       /* val btnVideo = findViewById<Button>(R.id.btnVideo)
+        btnVideo.setOnClickListener { viewVideo() }*/
 
+
+        val videoView = findViewById<VideoView>(R.id.xml_video_view)
+        // Ruta del video local
+        val videoUri = Uri.parse("android.resource://" + packageName + "/" + R.raw.video2)
+
+        // Configurar el MediaController para los controles de reproduccion
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+
+        // Establecer la fuente del video
+        videoView.setVideoURI(videoUri)
+
+        // Iniciar la reproduccion del video
+        videoView.start()
 
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
@@ -62,6 +75,9 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_item_three -> {
                 navigateNotiView()
+            }
+            R.id.nav_item_four -> {
+                navigateBlaaider()
             }
 
         }
@@ -103,7 +119,12 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
     }
 
-    private fun viewVideo() {
+    private fun navigateBlaaider(){
+        val intent = Intent(this, BlaaierActivity::class.java)
+        startActivity(intent)
+    }
+
+    /*private fun viewVideo() {
 
         val url = "https://www.youtube.com/watch?v=4f8rOsTeWJU&t=7s"
         val videoId = extractYouTubeVideoId(url)
@@ -117,7 +138,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 youTubePlayer.play()
             }
         })
-    }
+    }*/
 
     // Función para extraer el ID del video de una URL de YouTube
     private fun extractYouTubeVideoId(youtubeUrl: String): String {

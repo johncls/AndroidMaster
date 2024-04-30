@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AndroidMaster"
         tools:targetApi="31">
         <activity
+            android:name=".blaaier.BlaaierActivity"
+            android:exported="false" />
+        <activity
             android:name=".noti.viewsNotiActivity"
             android:exported="false" />
         <activity
@@ -40,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -20,15 +20,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <!-- YouTubePlayerView -->
+        <!-- YouTubePlayerView
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/youtube_player_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             app:autoPlay="false"
-            app:videoId="IgzpRSQKnK0" />
+            app:videoId="IgzpRSQKnK0" />-->
 
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        <VideoView
+            android:id="@+id/xml_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!--<com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:paddingTop="30dp"
@@ -48,14 +59,14 @@
             android:layout_height="200dp"
             android:paddingTop="30dp"
             app:autoPlay="false"
-            app:videoId="xxKsvCrIjrU" />
+            app:videoId="xxKsvCrIjrU" />-->
 
-        <!-- Button -->
+        <!-- Button
         <Button
             android:id="@+id/btnVideo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Play" />
+            android:text="Play" />-->
 
     </LinearLayout>
 

@@ -41,7 +41,7 @@ class viewsNotiActivity : AppCompatActivity() {
     }
 
     private fun initUI(){
-        this.searchByName("co");
+        this.searchByName("colombia");
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             /**
              * Funcion para el boton buscar
@@ -74,10 +74,12 @@ class viewsNotiActivity : AppCompatActivity() {
      * Buscar super heroes consumiendo la api
      */
     private fun searchByName(query:String) {
+        val language = "es"
+        val sortBy = "popularity"
         val apikey = "a6b5cf9d0f3b4a3c8c2cfb0afb8d5e27"
         binding.progressBar.isVisible = true
         CoroutineScope(Dispatchers.IO).launch {
-            val myResponse: Response<NotiViewResponse> = retrofit.create(ApiServiceNotiView::class.java).getNotiView(query, apikey)
+            val myResponse: Response<NotiViewResponse> = retrofit.create(ApiServiceNotiView::class.java).getNotiView(query,language, sortBy ,apikey)
             if(myResponse.isSuccessful){
                 Log.i("Noti View",myResponse.toString());
                 val response: NotiViewResponse? = myResponse.body()
@@ -95,6 +97,7 @@ class viewsNotiActivity : AppCompatActivity() {
         }
     }
     private fun navigateToDetail(id:String){
+
         val intent = Intent(this, DetailSuperHereoActivity::class.java)
         intent.putExtra(DetailSuperHereoActivity.EXRTRA_ID,id)
         startActivity(intent)

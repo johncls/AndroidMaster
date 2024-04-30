@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_500">#3276BA</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name='notiView'>#17121111</color>
-
+    <color name="botonNavegador">#3276BA</color>
     <!--    SuperheroApp-->
     <color name="superhero_item_name">#73673AB7</color>
 
@@ -17,6 +17,7 @@
     <color name="superhero_stat_strength">#FF0000</color>
     <color name="superhero_stat_speed">#E88B00</color>
     <color name="superhero_stat_durability">#03A9F4</color>
+    <color name="buttonSearch">#3276BA</color>
     <color name="superhero_stat_power">#FFEB3B</color>
     <color name="superhero_stat_combat">#673AB7</color>
 </resources>

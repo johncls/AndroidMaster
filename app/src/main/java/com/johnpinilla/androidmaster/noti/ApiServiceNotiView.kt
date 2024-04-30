@@ -5,9 +5,11 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiServiceNotiView {
-    @GET("v2/top-headlines")
+    @GET("v2/everything")
     suspend fun getNotiView(
-        @Query("country") country: String,
+        @Query("q") q: String,
+        @Query("language") language: String,
+        @Query("sortBy") sortBy: String,
         @Query("apiKey") apiKey: String
     ): Response<NotiViewResponse>
 
